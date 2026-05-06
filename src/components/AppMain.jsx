@@ -1,19 +1,18 @@
 import { useState } from "react"
-import initialArticles from '../data/articles'
+import initialFormData from '../data/formData'
 
 export default function AppMain() {
 
-    const [newAtricle, setNewArticle] = useState('')
-    const [articles, setArticles] = useState(initialArticles)
+    const [formData, setFormData] = useState(initialFormData)
     function removeArticle(i) {
 
-        const filteredArtticles = articles.filter((article, index) => index !== i)
-        setArticles(filteredArtticles)
+        const filteredArtticles = formData.filter((data, index) => index !== i)
+        setFormData(filteredArtticles)
 
     }
     function submit(e) {
         e.preventDefault()
-        setArticles([...articles, newAtricle])
+
         setNewArticle('')
 
     }
@@ -23,7 +22,34 @@ export default function AppMain() {
             <div className="container">
                 <div className="card p-3">
                     <form action="" onSubmit={submit}>
-                        <input type="text" className="form-control mb-2" value={newAtricle} onChange={e => setNewArticle(e.target.value)} />
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            placeholder="Author"
+                            value={formData.author}
+                            onChange={e => setNewArticle(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            placeholder="Title"
+                            value={formData.title}
+                            onChange={e => setNewArticle(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            placeholder="Body"
+                            value={formData.body}
+                            onChange={e => setNewArticle(e.target.value)}
+                        />
+                        <input
+                            type="checkbox"
+                            className="form-control mb-2"
+                            placeholder="Public"
+                            value={formData.public}
+                            onChange={e => setNewArticle(e.target.value)}
+                        />
                         <div className="d-flex justify-content-center">
                             <button className="text-uppercase btn btn-dark"><i className="bi bi-plus-circle"></i> aggiungi</button>
                         </div>
@@ -31,10 +57,10 @@ export default function AppMain() {
 
                     <hr />
 
-                    {articles.length === 0 ? (<div className="text-uppercase">nessun articolo presente</div>) : (<ul className="list-group">
-                        {articles.map((article, i) =>
-                            <li className="list-group-item d-flex justify-content-between" key={i}>
-                                {article}
+                    {formData.length === 0 ? (<div className="text-uppercase">nessun articolo presente</div>) : (<ul className="list-group">
+                        {formData.map((data, i) =>
+                            <li key={i} className="list-group-item d-flex justify-content-between" key={i}>
+                                {data}
                                 <button className="btn btn-dark" onClick={() => removeArticle(i)}>
                                     <i className="bi bi-trash-fill"></i>
                                 </button>

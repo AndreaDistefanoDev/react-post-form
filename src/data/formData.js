@@ -1,9 +1,7 @@
-const initiaFormData = [
-    'Articolo 1',
-    'Articolo 2',
-    'Articolo 3',
-    'Articolo 4',
-    'Articolo 5',
-    'Articolo 6',
-]
+const initiaFormData = {
+    author: '',
+    title: '',
+    body: '',
+    public: false
+}
 export default initiaFormData
