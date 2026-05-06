@@ -1,0 +1,13 @@
+@import url('bootstrap');
+@import url('bootstrap-icons');
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #F5E7C6;
+}
+
+body {
+  font-family: 'Cal Sans', sans-serif;
+  background-color: #1A1A1A;
+  color: #F5E7C6;
+}
